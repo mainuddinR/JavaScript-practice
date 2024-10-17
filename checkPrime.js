@@ -2,7 +2,7 @@ const readline=require('readline-sync');
 let num=readline.question('Enter checking number:\n');
 
 function checkPrime(num){
-    for(let i=2; i<(num/2); i++){
+    for(let i=2; i<=(num/2); i++){
     if(num%i==0){
         return false;
     }
