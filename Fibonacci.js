@@ -10,6 +10,7 @@ for(let i=2;i<=num ; i++){
 console.log(fibonacci);
 
 
+
 //recursive
 function fibonacciF(num){
     //stoping condition
