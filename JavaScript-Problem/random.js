@@ -9,8 +9,9 @@ let output=Math.round(dice);
 console.log("Random:",output);
 
 //jodi 6 moddhe random number genrate
+console.log("Loop Start");
 for(let i=1;i<=10;i++){
-    let six =Math.random()*6;
+    let six =1000+Math.random()*10000;
 //console.log("Random:",six);
  output=Math.round(six);
 console.log("Random:",output);
