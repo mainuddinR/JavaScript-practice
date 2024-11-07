@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <h2>JSON=JavaScript Object Notation</h2>
+    <ul id="users-container" type="circle">
+
+    </ul>
+    <ol type="1" id="comment-container">
+
+    </ol>
+    <script>
+        const user={id:245,name:"Mainuddin",FriendsAge:[12,34,53,21],friends:['Mainuddin',"Atikul",'Marjia','Maria'],
+        info:{
+            work:"Student",
+            address:"Dhaka"
+        }
+    };
+        const userJSON=JSON.stringify(user);//object ke JSON stringify te convert
+        //output {"id":245,"name":"Mainuddin"} //json property "" thake
+        console.log(userJSON);
+        const userFromJSON=JSON.parse(userJSON);//akta Json Stringify ke java Script object convert
+        console.log(userFromJSON);
+
+        //server theke 99% case data ashbe JSON format a ja object conver korte hobe
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => displayUser(json))
+        .catch(error => console.log(error))
+
+        function displayUser(users){
+           // console.log("users: ",users);
+            const ul=document.getElementById('users-container')
+            const userName=users.map(user=>user.username);
+            //console.log(userName);
+
+            for(let i=0;i<userName.length;i++){
+                const username=userName[i];
+                const li=document.createElement('li');
+                li.innerText=username;
+                ul.appendChild(li);
+            }
+        }
+
+
+        fetch('https://jsonplaceholder.typicode.com/comments')
+        .then(x => x.json())
+        .then(y=> displayComment(y))
+
+        function displayComment(user){
+            const email=user.map(x => x.email);
+            const comment=user.map(x=>x.body);
+            const ol=document.getElementById('comment-container');
+            // console.log("Email");
+            // console.log(email);
+            for(let i=0;i<email.length;i++){
+                const  text=`${email[i]} => ${comment[i]}`;
+                const li=document.createElement('li');
+                li.innerText=text;
+                ol.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
