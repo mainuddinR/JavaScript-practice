@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article{
+            border:3px solid rgb(69, 64, 11);
+            margin:30px;
+            padding:20px;
+            border-radius: 10px;
+        }
+        .special h3{
+            color:lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h3>Exploring DOM</h3>
+        <article>
+            <h3>article-1</h3>
+            <p class="author">author-1</p>
+            <p class="deacriptin">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae distinctio animi est ipsam labore? Culpa delectus dicta officiis fugit ratione!</p>
+        </article>
+        <article>
+            <h3>article-2</h3>
+            <p class="author">author-2</p>
+            <p class="deacriptin">Iure obcaecati sunt repellendus eos nobis ut dicta ex! Fugit similique aperiam hic possimus animi reiciendis ab odio quis eum?</p>
+        </article>
+        <article class="special">
+            <h3 title="I am article 3">article-3</h3>
+            <h3>Hello</h3>
+            <h3>Testing</h3>
+            <p class="author">author-3</p>
+            <p class="deacriptin">Voluptas illo, quaerat, omnis modi ipsam ipsa reiciendis officia cumque architecto aut ad quia ducimus sit est facere numquam reprehenderit.</p>
+        </article>
+    </section>
+    <script>
+        // var authors=document.getElementsByClassName('author');
+        var authors=document.querySelectorAll('.special h3');
+        console.log(authors);
+        for(let i=0;i<authors.length;i++){
+            let element=authors[i];
+            console.log(element);
+            element.style.backgroundColor="black";
+            element.style.border="2px solid yellowgreen"
+            console.log(element.innerHTML);
+            element.innerHTML='Hello-'+(i+1);
+        }
+    </script>
+</body>
+</html>

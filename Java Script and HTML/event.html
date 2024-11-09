@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>My item</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li onclick="this.innerText='Lorem hot first'">Lorem, ipsum.</li>
+        <li onclick="alert('Lorem here')">Lorem, ipsum dolor.</li>
+        <li onclick="itemClickHander(event)">Mollitia, magnam?</li>
+        <li id="lastPerson">Rerum, Consequuntur</li>
+    </ul>
+
+    <script>
+        function itemClickHander(event){
+            console.log(event.target.innerText);
+        }
+        document.getElementById('lastPerson').addEventListener('click',itemClickHander);
+    </script>
+</body>
+<!-- </ window golobal scope-->

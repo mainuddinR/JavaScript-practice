@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is not confused anymore!</h1>
+    <p onclick="this.innerText='you click'">I am paragraph</p>
+    <script>
+        const myObject={
+            name:"Mainuddin",
+            getFullName: function(){
+                console.log(this);
+                return "Md "+this.name;
+            }
+        }
+       // console.log(myObject.getFullName());
+       myObject.getFullName();
+
+       const anotherObj={
+        name:"Ariful huqe"
+       }
+       console.log(myObject.getFullName);
+       anotherObj.getFullName=myObject.getFullName;//this akhon anotherObject
+       console.log(anotherObj.getFullName);
+       anotherObj.getFullName();
+
+       function add(a,b){
+        console.log(this);//this=window
+        return a+b;
+       }
+      const sum= add(9,5);
+      //function location assign
+      anotherObj.sum=add;
+      anotherObj.sum();
+      setTimeout(function(){
+        console.log(this);
+      },1000); //1s=1000ms
+    </script>
+</body>
+</html>
